@@ -11,5 +11,7 @@ require("core.config.neo-tree")
 require("core.config.formatter")
 require("core.config.lualine")
 require("core.config.session-manager")
+require("core.config.neoscroll")
+require("core.config.autopairs")
 
 vim.notify = require("notify")

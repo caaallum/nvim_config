@@ -5,6 +5,7 @@ if vim.fn.has "nvim-0.9" == 1 then
   vim.opt.diffopt:append "linematch:60"
 end
 
+vim.opt.list = true
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 0

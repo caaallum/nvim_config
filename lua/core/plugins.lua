@@ -64,6 +64,9 @@ return require("packer").startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "rcarriga/nvim-notify"
   use "Shatur/neovim-session-manager"
+  use "karb94/neoscroll.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use "windwp/nvim-autopairs"
   if packer_bootstrap then
     require("packer").sync()
   end
