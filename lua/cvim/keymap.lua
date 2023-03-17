@@ -58,3 +58,6 @@ vim.keymap.set("n", "<leader>Sf", "<cmd>SessionManager! load_session<cr>")
 
 -- Games
 vim.keymap.set("n", "<leader>gt", "<cmd>Tetris<cr>")
+
+-- Zen mode
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
