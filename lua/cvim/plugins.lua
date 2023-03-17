@@ -71,6 +71,7 @@ return require("packer").startup(function(use)
 		"onsails/lspkind.nvim",
 	})
 	use("gen740/SmoothCursor.nvim")
+	use("alec-gibson/nvim-tetris")
 	if packer_bootstrap then
 		require("packer").sync()
 	end
