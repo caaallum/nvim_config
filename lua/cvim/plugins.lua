@@ -70,6 +70,7 @@ return require("packer").startup(function(use)
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
 	})
+	use("gen740/SmoothCursor.nvim")
 	if packer_bootstrap then
 		require("packer").sync()
 	end
