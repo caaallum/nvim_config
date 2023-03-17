@@ -50,14 +50,6 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
-	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
-		},
-	})
 	use("famiu/bufdelete.nvim")
 	use("s1n7ax/nvim-window-picker")
 	use("mhartington/formatter.nvim")
