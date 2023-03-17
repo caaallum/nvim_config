@@ -1,4 +1,4 @@
-require("core.plugins")
-require("core.options")
-require("core.config")
-require("core.keymap")
+require("cvim.plugins")
+require("cvim.options")
+require("cvim.config")
+require("cvim.keymap")
