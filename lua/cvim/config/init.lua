@@ -15,5 +15,6 @@ require("cvim.config.neoscroll")
 require("cvim.config.autopairs")
 require("cvim.config.cmp")
 require("cvim.config.smoothcursor")
+--require("cvim.config.dashboard")
 
 vim.notify = require("notify")

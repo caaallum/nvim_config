@@ -4,6 +4,7 @@ require("catppuccin").setup({
         treesitter = true,
         ts_rainbow2 = true,
         notify = true,
+        dashboard = true
     }
 })
 
