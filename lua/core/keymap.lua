@@ -45,7 +45,9 @@ vim.keymap.set("n", "<leader>/", require("Comment.api").toggle.linewise.current)
 -- Buffer
 vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>")
-vim.keymap.set("n", "<leader>c", function() require("bufdelete").bufdelete(0, false) end)
+vim.keymap.set("n", "<leader>c", function()
+	require("bufdelete").bufdelete(0, false)
+end)
 
 -- Sessions
 vim.keymap.set("n", "<leader>S.", "<cmd>SessionManager! load_current_dir_session<cr>")
