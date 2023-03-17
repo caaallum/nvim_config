@@ -72,10 +72,8 @@ return require("packer").startup(function(use)
 	})
 	use("gen740/SmoothCursor.nvim")
 	use("alec-gibson/nvim-tetris")
-	use({
-	    "glepnir/dashboard-nvim",
-	    event = "VimEnter"
-	})
+	use("goolord/alpha-nvim")
+	use({"folke/zen-mode.nvim"})
 	if packer_bootstrap then
 		require("packer").sync()
 	end
