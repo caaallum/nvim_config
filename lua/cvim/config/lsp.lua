@@ -2,6 +2,12 @@ local servers = { "lua_ls", "clangd", "cmake", "intelephense" }
 
 require("mason").setup()
 
+require("mason-null-ls").setup({
+    ensure_installed = { "cpptools", "php-debug-adapter" },
+    automatic_setup = true,
+    automatic_installation = true
+})
+
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,

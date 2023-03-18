@@ -17,5 +17,7 @@ require("cvim.config.cmp")
 require("cvim.config.smoothcursor")
 require("cvim.config.alpha")
 require("cvim.config.zen-mode")
+require("cvim.config.hop")
+require("cvim.config.blankline")
 
 vim.notify = require("notify")

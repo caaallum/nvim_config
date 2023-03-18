@@ -40,7 +40,7 @@ vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>")
 
 -- Comment
 vim.keymap.set("n", "<leader>/", require("Comment.api").toggle.linewise.current)
--- vim.keymap.set("v", "<leader>/", require("Comment.api").toggle.linewise(vim.fn.visualmode()))
+vim.keymap.set("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
 
 -- Buffer
 vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>")
@@ -61,3 +61,20 @@ vim.keymap.set("n", "<leader>gt", "<cmd>Tetris<cr>")
 
 -- Zen mode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
+
+-- Telescope
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+
+-- Git diff
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>")
+
+-- Hop
+local hop = require("hop")
+local directions = require("hop.hint").HintDirection
+vim.keymap.set("n", "f", function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, { remap = true })
+vim.keymap.set("n", "F", function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, { remap = true })
+

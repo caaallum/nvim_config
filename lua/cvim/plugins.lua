@@ -45,10 +45,8 @@ return require("packer").startup(function(use)
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-	})
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+		"jose-elias-alvarez/null-ls.nvim",
+		"jay-babu/mason-null-ls.nvim",
 	})
 	use("famiu/bufdelete.nvim")
 	use("s1n7ax/nvim-window-picker")
@@ -73,7 +71,20 @@ return require("packer").startup(function(use)
 	use("gen740/SmoothCursor.nvim")
 	use("alec-gibson/nvim-tetris")
 	use("goolord/alpha-nvim")
-	use({"folke/zen-mode.nvim"})
+	use({ "folke/zen-mode.nvim" })
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+	use({
+		"sindrets/diffview.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2",
+	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end
