@@ -85,6 +85,12 @@ return require("packer").startup(function(use)
 		"phaazon/hop.nvim",
 		branch = "v2",
 	})
+	use({
+	    "mfussenegger/nvim-dap",
+        "jay-babu/mason-nvim-dap.nvim",
+        "rcarriga/nvim-dap-ui",
+        "folke/neodev.nvim"
+	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end

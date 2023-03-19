@@ -78,3 +78,25 @@ local directions = require("hop.hint").HintDirection
 vim.keymap.set("n", "f", function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, { remap = true })
 vim.keymap.set("n", "F", function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, { remap = true })
 
+-- Dap
+vim.keymap.set("n", "<F5>", function() require("dap").continue() end)
+vim.keymap.set("n", "<F17>", function() require("dap").terminate() end) -- Shift+F5
+vim.keymap.set("n", "<F29>", function() require("dap").restart_frame() end) -- CTRL+F5
+vim.keymap.set("n", "<F6>", function() require("dap").pause() end)
+vim.keymap.set("n", "<F9>", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<F10>", function() require("dap").setup_over() end)
+vim.keymap.set("n", "<F11>", function() require("dap").step_into() end)
+vim.keymap.set("n", "<F23>", function() require("dap").step_out() end) -- Shift+F11
+vim.keymap.set("n", "<leader>db", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<leader>dB", function() require("dap").clear_breakpoints() end)
+vim.keymap.set("n", "<leader>dc", function() require("dap").continue() end)
+vim.keymap.set("n", "<leader>di", function() require("dap").step_into() end)
+vim.keymap.set("n", "<leader>do", function() require("dap").step_over() end)
+vim.keymap.set("n", "<leader>dO", function() require("dap").step_out() end)
+vim.keymap.set("n", "<leader>dq", function() require("dap").close() end)
+vim.keymap.set("n", "<leader>dQ", function() require("dap").terminate() end)
+vim.keymap.set("n", "<leader>dp", function() require("dap").pause() end)
+vim.keymap.set("n", "<leader>dr", function() require("dap").restart_frame() end)
+vim.keymap.set("n", "<leader>dR", function() require("dap").repl.toggle() end)
+vim.keymap.set("n", "<leader>du", function() require("dapui").toggle() end)
+vim.keymap.set("n", "<leader>dh", function() require("dap.ui.widgets").hover() end)

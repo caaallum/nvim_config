@@ -19,5 +19,6 @@ require("cvim.config.alpha")
 require("cvim.config.zen-mode")
 require("cvim.config.hop")
 require("cvim.config.blankline")
+require("cvim.config.dap")
 
 vim.notify = require("notify")

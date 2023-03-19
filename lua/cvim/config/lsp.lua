@@ -8,6 +8,17 @@ require("mason-null-ls").setup({
     automatic_installation = true
 })
 
+require("mason-nvim-dap").setup({
+    ensure_installed = { "php", "cppdbg" },
+    automatic_setup = true
+})
+
+require("mason-nvim-dap").setup_handlers {
+    function(source_name)
+        require("mason-nvim-dap.automatic_setup")(source_name)
+    end,
+}
+
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
