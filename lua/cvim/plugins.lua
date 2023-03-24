@@ -91,6 +91,7 @@ return require("packer").startup(function(use)
         "rcarriga/nvim-dap-ui",
         "folke/neodev.nvim"
 	})
+	use({"gorbit99/codewindow.nvim"})
 	if packer_bootstrap then
 		require("packer").sync()
 	end
