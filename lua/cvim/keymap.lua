@@ -10,6 +10,12 @@ for _, mode in ipairs(modes) do
     vim.keymap.set(mode, "<Up>", "<Nop>")
 end
 
+-- Movement in insert mode
+vim.keymap.set("i", "<C-h>", "<Left>")
+vim.keymap.set("i", "<C-j>", "<Down>")
+vim.keymap.set("i", "<C-k>", "<Up>")
+vim.keymap.set("i", "<C-l>", "<Right>")
+
 -- Reverse tab
 vim.keymap.set("n", "<S-Tab>", "<<")
 vim.keymap.set("i", "<S-Tab>", "<C-d>")
