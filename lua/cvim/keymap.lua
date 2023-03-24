@@ -1,6 +1,15 @@
 -- Remove highlight
 vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<cr>")
 
+-- Disable arrow key movement
+local modes = { "n", "i", "v" }
+for _, mode in ipairs(modes) do
+    vim.keymap.set(mode, "<Down>", "<Nop>")
+    vim.keymap.set(mode, "<Left>", "<Nop>")
+    vim.keymap.set(mode, "<Right>", "<Nop>")
+    vim.keymap.set(mode, "<Up>", "<Nop>")
+end
+
 -- Reverse tab
 vim.keymap.set("n", "<S-Tab>", "<<")
 vim.keymap.set("i", "<S-Tab>", "<C-d>")
@@ -100,3 +109,10 @@ vim.keymap.set("n", "<leader>dr", function() require("dap").restart_frame() end)
 vim.keymap.set("n", "<leader>dR", function() require("dap").repl.toggle() end)
 vim.keymap.set("n", "<leader>du", function() require("dapui").toggle() end)
 vim.keymap.set("n", "<leader>dh", function() require("dap.ui.widgets").hover() end)
+
+-- Codewindow
+local codewindow = require("codewindow")
+vim.keymap.set("n", "<leader>mo", codewindow.open_minimap)
+vim.keymap.set("n", "<leader>mc", codewindow.close_minimap)
+vim.keymap.set("n", "<leader>mf", codewindow.toggle_focus)
+vim.keymap.set("n", "<leader>mm", codewindow.toggle_minimap)
