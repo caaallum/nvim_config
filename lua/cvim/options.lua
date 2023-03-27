@@ -46,6 +46,7 @@ vim.opt.updatetime = 300
 vim.opt.virtualedit = "block"
 vim.opt.wrap = false
 vim.opt.writebackup = false
+vim.opt.colorcolumn = "80"
 
 vim.g.highlighturl_enabled = true
 vim.g.mapleader = " "
