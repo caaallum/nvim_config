@@ -122,3 +122,6 @@ vim.keymap.set("n", "<leader>mo", codewindow.open_minimap)
 vim.keymap.set("n", "<leader>mc", codewindow.close_minimap)
 vim.keymap.set("n", "<leader>mf", codewindow.toggle_focus)
 vim.keymap.set("n", "<leader>mm", codewindow.toggle_minimap)
+
+-- Navbuddy
+vim.keymap.set("n", "<leader>n", "<cmd>Navbuddy<cr>")

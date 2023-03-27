@@ -92,6 +92,14 @@ return require("packer").startup(function(use)
         "folke/neodev.nvim"
 	})
 	use({"gorbit99/codewindow.nvim"})
+	use({"Bekaboo/deadcolumn.nvim"})
+	use({"SmiteshP/nvim-navbuddy",
+        requires = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim"
+        }
+    })
 	if packer_bootstrap then
 		require("packer").sync()
 	end
