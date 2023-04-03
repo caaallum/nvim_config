@@ -3,7 +3,7 @@ local map = vim.keymap.set
 -- Remove highlight
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 
-
+-- Disable arrow key movement
 map({ "n", "i", "v" }, "<Down>", "<Nop>")
 map({ "n", "i", "v" }, "<Left>", "<Nop>")
 map({ "n", "i", "v" }, "<Right>", "<Nop>")
