@@ -22,5 +22,6 @@
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "smart-splits.nvim": { "branch": "master", "commit": "6027452995f56e0f4b126e7b9a38daa5fb2ecb17" },
   "toggleterm.nvim": { "branch": "main", "commit": "b86982429325112d2b20c6d0cc7a5c4b182ab705" },
+  "vim-startuptime": { "branch": "master", "commit": "6580cf539c33a212f4f5542068a3b4dd2b3ad834" },
   "zen-mode.nvim": { "branch": "main", "commit": "d907e638c879642d226d27469b53db6925f69d4c" }
 }

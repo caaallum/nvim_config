@@ -1,17 +1,16 @@
 local M = {
     "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
     keys = {
         {
             "<leader>tf",
             "<cmd>ToggleTerm direction=float<cr>",
             desc = "Open floating terminal",
-            mode = "n"
         },
         {
             "<leader>th",
             "<cmd>ToggleTerm direction=horizontal<cr>",
-            dec = "Open horizontal terminal",
-            mode = "n"
+            desc = "Open horizontal terminal",
         },
         {
             "<C-h>",
@@ -34,7 +33,9 @@ local M = {
             mode = "t"
         }
     },
-    config = true
+    config = function()
+        require("toggleterm").setup()
+    end
 }
 
 return M

@@ -18,4 +18,7 @@ require("lazy").setup("plugins", {
 	},
 	checker = { enabled = true },
 	debug = false,
+	custom_keys = {
+	    ["<localleader>t"] = false
+	}
 })

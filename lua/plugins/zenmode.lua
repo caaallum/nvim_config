@@ -1,5 +1,6 @@
 local M = {
     "folke/zen-mode.nvim",
+    event = "VeryLazy",
     keys = {
         { "<leader>z", "<cmd>ZenMode<cr>", desc = "Toggle zenmode" }
     },
