@@ -46,17 +46,9 @@ M.lsp_kinds = {
 }
 
 M.mason_packages = {
-    "bash-language-server",
-    "clang-format",
     "clangd",
-    "json-lsp",
-    "html-lsp",
-    "lua-language-server",
-    "markdownlint",
-    "stylua",
+    "intelephense",
     "gopls",
-    "yaml-language-server",
-    "editorconfig-checker"
 }
 
 M.lsp_servers = {
