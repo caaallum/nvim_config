@@ -1,4 +1,3 @@
-require("cvim.plugins")
-require("cvim.options")
-require("cvim.config")
-require("cvim.keymap")
+require("core.lazy")
+require("config.options")
+require("config.keymaps")
