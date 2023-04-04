@@ -21,7 +21,7 @@ o.completeopt = { "menuone", "noselect" }
 o.copyindent = true
 o.cursorline = true
 o.expandtab = true
-o.fileencoding = "utf-8"
+-- o.fileencoding = "utf-8"
 o.fillchars = { eob = " " }
 o.foldenable = true
 o.foldlevel = 99
