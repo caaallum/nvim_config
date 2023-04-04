@@ -26,3 +26,5 @@ map("n", "<leader>W", "<cmd>w!<cr>")
 map("n", "<leader>Q", "<cmd>q!<cr>")
 map("n", "<leader>x", "<cmd>wq!<cr>")
 
+-- Escape
+map("i", "jj", "<Esc>")
