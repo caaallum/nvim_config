@@ -71,7 +71,8 @@ M.ts_servers = {
     "json",
     "javascript",
     "markdown_inline",
-    "yaml"
+    "yaml",
+    "php"
 }
 
 function M.on_attach(on_attach)
