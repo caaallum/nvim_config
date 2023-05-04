@@ -19,7 +19,17 @@ local M = {
             },
             filesystem = {
                 follow_current_file = true,
-            }
+            },
+            source_selector = {
+              winbar = true,
+              content_layout = "center",
+              sources = {
+                { source = "filesystem", display_name = "File" },
+                { source = "buffers", display_name = "Bufs" },
+                { source = "git_status", display_name = "Git" },
+                { source = "diagnostics", display_name = "Diagnostic" },
+              },
+          }
         }
     end,
     config = function(_, opts)
