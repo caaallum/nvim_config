@@ -28,3 +28,4 @@ map("n", "<leader>x", "<cmd>wq!<cr>")
 
 -- Escape
 map("i", "jj", "<Esc>")
+map("i", "jk", "<Esc>")
