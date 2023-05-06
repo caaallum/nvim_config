@@ -16,8 +16,9 @@ map("i", "<C-k>", "<Up>")
 map("i", "<C-l>", "<Right>")
 
 -- Reverse tab
-map("n", "<S-Tab>", "<<")
+map({ "n", "v" }, "<S-Tab>", "<<")
 map("i", "<S-Tab>", "<C-d>")
+map("v", "<Tab>", ">>")
 
 -- Save and close files
 map("n", "<leader>w", "<cmd>w<cr>")
@@ -29,3 +30,9 @@ map("n", "<leader>x", "<cmd>wq!<cr>")
 -- Escape
 map("i", "jj", "<Esc>")
 map("i", "jk", "<Esc>")
+
+-- Comment
+map("n", "<leader>/", function()
+    require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
+  end)
+map("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode(h))<cr>")
