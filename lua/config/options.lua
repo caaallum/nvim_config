@@ -15,7 +15,7 @@ vim.opt.completeopt = { "menuone", "noselect" } -- Options for insert mode compl
 vim.opt.copyindent = true -- Copy the previous indentation on autoindenting
 vim.opt.cursorline = true -- Highlight the text line of the cursor
 vim.opt.expandtab = true -- Enable the use of space in tab
-vim.opt.fileencoding = "utf-8" -- File content encoding for the buffer
+--vim.opt.fileencoding = "utf-8" -- File content encoding for the buffer
 vim.opt.fillchars = { eob = " " } -- Disable `~` on nonexistent lines
 vim.opt.foldenable = true -- enable fold for nvim-ufo
 vim.opt.foldlevel = 99 -- set high foldlevel for nvim-ufo
@@ -61,7 +61,7 @@ vim.g.diagnostics_mode = 3 -- set the visibility of diagnostics in the UI (0=off
 vim.g.icons_enabled = true -- disable icons in the UI (disable if no nerd font is available)
 vim.g.ui_notifications_enabled = true -- disable notifications when toggling UI elements
 
-vim.t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() } -- initialize buffers for the current tab
+-- vim.t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() } -- initialize buffers for the current tab
 
 vim.diagnostic.config({
   virtual_test = true,

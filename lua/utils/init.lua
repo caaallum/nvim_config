@@ -5,6 +5,7 @@ M.git_colors = {
     GitChange = "#74ADEA",
     GitDelete = "#FE747A",
 }
+
 M.lsp_signs = { Error = "✖ ", Warn = "! ", Hint = "󰌶 ", Info = " " }
 
 M.lsp_kinds = {
@@ -95,6 +96,10 @@ end
 
 function M.info(msg, notify_opts)
     vim.notify(msg, vim.log.levels.INFO, notify_opts)
+end
+
+function M.executable(name)
+  return vim.fn.executable(name) > 0
 end
 
 return M

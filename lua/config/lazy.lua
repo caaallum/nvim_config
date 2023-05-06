@@ -13,12 +13,16 @@ vim.opt.runtimepath:prepend(lazypath)
 
 -- load lazy
 require("lazy").setup("plugins", {
+  defaults = {
+    lazy = true,
+    version = "57cce98dfdb2f2dd05a0567d89811e6d0505e13b"
+  },
 	ui = {
 		border = "rounded",
+		wrap = "true"
 	},
-	checker = { enabled = true },
+	change_detection = {
+	  enabled = true
+	},
 	debug = false,
-	custom_keys = {
-	    ["<localleader>t"] = false
-	}
 })
