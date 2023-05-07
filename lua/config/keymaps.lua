@@ -16,9 +16,10 @@ map("i", "<C-k>", "<Up>")
 map("i", "<C-l>", "<Right>")
 
 -- Reverse tab
-map({ "n", "v" }, "<S-Tab>", "<<")
+map("n", "<S-Tab>", "<<")
 map("i", "<S-Tab>", "<C-d>")
-map("v", "<Tab>", ">>")
+map("v", "<Tab>", ">gv")
+map("v", "<S-Tab>", "<gv")
 
 -- Save and close files
 map("n", "<leader>w", "<cmd>w<cr>")
@@ -60,12 +61,23 @@ map("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 map("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
 
 -- Dap
-map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-map("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-map("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-map("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
-map("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
-map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
-map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
-map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+map("n", "<F5>", function() require("dap").continue() end) -- Debugger start
+map("n", "<F17>", function() require("dap").terminate() end) -- Debugger stop (Shift+F5)
+map("n", "<F21>", function() 
+    vim.ui.input({ prompt = "Condition: " }, function(condition)
+      if condition then require("dap").set_breakpoint(condition) end
+    end)
+  end
+)
+
+map("n", "<F29>", function() require("dap").restart_frame() end) -- Debugger restrt (CTRL+F5)
+map("n", "<F6>", function() require("dap").pause() end) -- Debugger Pause
+map("n", "<F9>", function() require("dap").toogle_breakpoint() end) -- Toggle breakpoint
+map("n", "<F10>", function() require("dap").step_over() end)
+map("n", "<F11>", function() require("dap").step_into() end)
+map("n", "<F23>", function() require("dap").step_out() end) -- Shift+F11
+map("n", "<leader>db", function() require("dap").toggle_breakpoint() end)
+map("n", "<leader>dB", function() require("dap").clear_breakpoints() end)
+
+-- Dap ui
+map("n", "<leader>du", function() require("dapui").toggle() end)
