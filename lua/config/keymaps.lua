@@ -89,3 +89,7 @@ map("t", "<C-h>", "<cmd>wincmd h<cr>", opts)
 map("t", "<C-j>", "<cmd>wincmd j<cr>", opts)
 map("t", "<C-k>", "<cmd>wincmd k<cr>", opts)
 map("t", "<C-l>", "<cmd>wincmd l<cr>", opts)
+
+-- Neotree
+map("n", "<leader>e", "<cmd>Neotree toggle<cr>", opts)
+map("n", "<leader>o", "<cmd>Neotree<cr>", opts)
