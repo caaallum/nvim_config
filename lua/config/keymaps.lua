@@ -42,22 +42,22 @@ map("n", "|", "<cmd>vsplit<cr>", opts)
 map("n", "\\", "<cmd>split<cr>", opts)
 
 -- Resize splits
-map("n", "<A-h>", require("smart-splits").resize_left, opts)
-map("n", "<A-j>", require("smart-splits").resize_down, opts)
-map("n", "<A-k>", require("smart-splits").resize_up, opts)
-map("n", "<A-l>", require("smart-splits").resize_right, opts)
+map("n", "<A-h>", function() require("smart-splits").resize_left() end, opts)
+map("n", "<A-j>", function() require("smart-splits").resize_down() end, opts)
+map("n", "<A-k>", function() require("smart-splits").resize_up() end, opts)
+map("n", "<A-l>", function() require("smart-splits").resize_right() end, opts)
 
 -- Moving between splits
-map("n", "<C-h>", require("smart-splits").move_cursor_left, opts)
-map("n", "<C-j>", require("smart-splits").move_cursor_down, opts)
-map("n", "<C-k>", require("smart-splits").move_cursor_up, opts)
-map("n", "<C-l>", require("smart-splits").move_cursor_right, opts)
+map("n", "<C-h>", function() require("smart-splits").move_cursor_left() end, opts)
+map("n", "<C-j>", function() require("smart-splits").move_cursor_down() end, opts)
+map("n", "<C-k>", function() require("smart-splits").move_cursor_up() end, opts)
+map("n", "<C-l>", function() require("smart-splits").move_cursor_right() end, opts)
 
 -- Swapping buffers between windows
-map("n", "<leader><leader>h", require("smart-splits").swap_buf_left, opts)
-map("n", "<leader><leader>j", require("smart-splits").swap_buf_down, opts)
-map("n", "<leader><leader>k", require("smart-splits").swap_buf_up, opts)
-map("n", "<leader><leader>l", require("smart-splits").swap_buf_right, opts)
+map("n", "<leader><leader>h", function() require("smart-splits").swap_buf_left() end, opts)
+map("n", "<leader><leader>j", function() require("smart-splits").swap_buf_down() end, opts)
+map("n", "<leader><leader>k", function() require("smart-splits").swap_buf_up() end, opts)
+map("n", "<leader><leader>l", function() require("smart-splits").swap_buf_right() end, opts)
 
 -- Dap
 map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
