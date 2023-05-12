@@ -1,5 +1,10 @@
 local map = vim.keymap.set
+-- Silent keymap option
 local opts = { silent = true }
+
+--Remap space as leader key
+map("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
 
 -- Remove highlight
 map("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
