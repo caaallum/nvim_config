@@ -1,69 +1,43 @@
-vim.g.mapleader = " " -- Map space to leader
-vim.g.maplocalleader = " " -- Map space to local leader
-
-vim.opt.shortmess:append { s = true, I = true } -- Disable startup message
-vim.opt.backspace:append { "nostop" } -- Don't stop backspace at insert
-
-if vim.fn.has "nvim-0.9" == 1 then
-  vim.opt.diffopt:append "linematch:60" -- Enable linematch diff algorithm
-end
-
-vim.opt.breakindent = true -- Wrap indent to match  line start
-vim.opt.clipboard = "unnamedplus" -- Connection to the system clipboard
-vim.opt.cmdheight = 0 -- hide command line unless needed
-vim.opt.completeopt = { "menuone", "noselect" } -- Options for insert mode completion
-vim.opt.copyindent = true -- Copy the previous indentation on autoindenting
-vim.opt.cursorline = true -- Highlight the text line of the cursor
-vim.opt.expandtab = true -- Enable the use of space in tab
---vim.opt.fileencoding = "utf-8" -- File content encoding for the buffer
-vim.opt.fillchars = { eob = " " } -- Disable `~` on nonexistent lines
-vim.opt.foldenable = true -- enable fold for nvim-ufo
-vim.opt.foldlevel = 99 -- set high foldlevel for nvim-ufo
-vim.opt.foldlevelstart = 99 -- start with all code unfolded
---vim.opt.foldcolumn = vim.fn.has "nvim-0.9" == 1 and "1" or nil -- show foldcolumn in nvim 0.9
-vim.opt.history = 100 -- Number of commands to remember in a history table
-vim.opt.ignorecase = true -- Case insensitive searching
-vim.opt.infercase = true -- Infer cases in keyword completion
-vim.opt.laststatus = 3 -- globalstatus
-vim.opt.linebreak = true -- Wrap lines at 'breakat'
-vim.opt.mouse = "a" -- Enable mouse support
-vim.opt.number = true -- Show numberline
-vim.opt.preserveindent = true -- Preserve indent structure as much as possible
-vim.opt.pumheight = 10 -- Height of the pop up menu
-vim.opt.relativenumber = true -- Show relative numberline
-vim.opt.scrolloff = 8 -- Number of lines to keep above and below the cursor
-vim.opt.shiftwidth = 4 -- Number of space inserted for indentation
-vim.opt.showmode = false -- Disable showing modes in command line
-vim.opt.showtabline = 2 -- always display tabline
-vim.opt.sidescrolloff = 8 -- Number of columns to keep at the sides of the cursor
-vim.opt.signcolumn = "yes" -- Always show the sign column
-vim.opt.smartcase = true -- Case sensitivie searching
-vim.opt.smartindent = true -- Smarter autoindentation
-vim.opt.splitbelow = true -- Splitting a new window below the current one
--- vim.opt.splitkeep = vim.fn.has "nvim-0.9" == 1 and "screen" or nil -- Maintain code view when splitting
-vim.opt.splitright = true -- Splitting a new window at the right of the current one
-vim.opt.tabstop = 4 -- Number of space in a tab
-vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
-vim.opt.timeoutlen = 500 -- Shorten key timeout length a little bit for which-key
-vim.opt.undofile = true -- Enable persistent undo
-vim.opt.updatetime = 300 -- Length of time to wait before triggering the plugin
-vim.opt.virtualedit = "block" -- allow going past end of line in visual block mode
-vim.opt.wrap = false -- Disable wrapping of lines longer than the width of window
-vim.opt.writebackup = false -- Disable making a backup before overwriting a file
-
-vim.g.highlighturl_enabled = true -- highlight URLs by default
-vim.g.autoformat_enabled = true -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-vim.g.codelens_enabled = true -- enable or disable automatic codelens refreshing for lsp that support it
-vim.g.lsp_handlers_enabled = true -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
-vim.g.cmp_enabled = true -- enable completion at start
-vim.g.autopairs_enabled = true -- enable autopairs at start
-vim.g.diagnostics_mode = 3 -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
-vim.g.icons_enabled = true -- disable icons in the UI (disable if no nerd font is available)
-vim.g.ui_notifications_enabled = true -- disable notifications when toggling UI elements
-
--- vim.t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() } -- initialize buffers for the current tab
-
-vim.diagnostic.config({
-  virtual_test = true,
-  update_in_insert = true
-})
+vim.opt.backup = false                          -- creates a backup file
+vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
+vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
+vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
+vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true                       -- ignore case in search patterns
+vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
+vim.opt.pumheight = 10                          -- pop up menu height
+vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 0                         -- always show tabs
+vim.opt.smartcase = true                        -- smart case
+vim.opt.smartindent = true                      -- make indenting smarter again
+vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
+vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
+vim.opt.swapfile = false                        -- creates a swapfile
+vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300                        -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.undofile = true                         -- enable persistent undo
+vim.opt.updatetime = 300                        -- faster completion (4000ms default)
+vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.expandtab = true                        -- convert tabs to spaces
+vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4                             -- insert 4 spaces for a tab
+vim.opt.cursorline = true                       -- highlight the current line
+vim.opt.number = true                           -- set numbered lines
+vim.opt.laststatus = 3                          -- only the last window will always have a status line
+vim.opt.showcmd = false                         -- hide (partial) command in the last line of the screen (for performance)
+vim.opt.ruler = false                           -- hide the line and column number of the cursor position
+vim.opt.numberwidth = 4                         -- minimal number of columns to use for the line number {default 4}
+vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.wrap = false                            -- display lines as one long line
+vim.opt.scrolloff = 8                           -- minimal number of screen lines to keep above and below the cursor
+vim.opt.sidescrolloff = 8                       -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
+vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
+vim.opt.fillchars.eob = " "                     -- show empty lines at the end of a buffer as ` ` {default `~`}
+vim.opt.shortmess:append "c"                    -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
+vim.opt.whichwrap:append "<,>,[,],h,l"          -- keys allowed to move to the previous/next line when the beginning/end of line is reached
+vim.opt.iskeyword:append "-"                    -- treats words with `-` as single words
+vim.opt.formatoptions:remove { "c", "r", "o" }  -- This is a sequence of letters which describes how automatic formatting is to be done
+vim.opt.linebreak = true

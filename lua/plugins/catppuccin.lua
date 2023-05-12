@@ -3,9 +3,10 @@ local M = {
   tag = "v1.1.1",
   name = "catppuccin",
   priority = 1000,
+  lazy = false,
   opts = function()
     return {
-      falvour = "mocha",
+      flavour = "mocha",
       integrations = {
         neotree = true,
         treesitter = true,
@@ -18,13 +19,14 @@ local M = {
       show_end_of_buffer = true,
       term_colors = true
     }
-  end,
-  config = function(_, opts)
-    local catpuccin = require("catppuccin")
-    catpuccin.setup(opts)
-
-    vim.cmd.colorscheme "catppuccin"
   end
 }
+
+function M.config()
+  local catpuccin = require("catppuccin")
+  catpuccin.setup(opts)
+
+  vim.cmd.colorscheme "catppuccin"
+end
 
 return M
