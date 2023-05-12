@@ -5,7 +5,7 @@ local M = {
 }
 
 function M.config()
-  local dap = require "dap"
+  local dap = require("dap")
 
   local dap_ui_status_ok, dapui = pcall(require, "dapui")
   if not dap_ui_status_ok then
@@ -53,15 +53,5 @@ function M.config()
     },
   }
 end
-
-M = {
-  "ravenxrz/DAPInstall.nvim",
-  commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de",
-  lazy = true,
-  config = function()
-    require("dap_install").setup {}
-    require("dap_install").config("python", {})
-  end,
-}
 
 return M
