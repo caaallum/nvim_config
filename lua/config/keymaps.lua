@@ -98,3 +98,43 @@ map("t", "<C-l>", "<cmd>wincmd l<cr>", opts)
 -- Neotree
 map("n", "<leader>e", "<cmd>Neotree toggle<cr>", opts)
 map("n", "<leader>o", "<cmd>Neotree<cr>", opts)
+
+-- Hop
+map("n", "<leader>f",
+  function()
+    require("hop").hint_char1({
+      direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+      current_line_only = true
+    })
+  end,
+  opts
+)
+map("n", "<leader>F",
+  function()
+    require("hop").hint_char1({
+      direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+      current_line_only = true
+    })
+  end,
+  opts
+)
+map("n", "<leater>t",
+  function()
+    require("hop").hint_char1({
+      direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+      current_line_only = true,
+      hint_offset = -1
+    })
+  end,
+  opts
+)
+map("n", "<leader>T",
+  function()
+    require("hop").hint_char1({
+      direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+      current_line_only = true,
+      hint_offset = 1
+    })
+  end,
+  opts
+)
