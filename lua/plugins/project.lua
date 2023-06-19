@@ -19,7 +19,7 @@ local M = {
       detection_methods = { "pattern" },
   
       -- patterns used to detect root dir, when **"pattern"** is in detection_methods
-      patterns = { ".git", "Makefile", "package.json", "CMakeLists.txt" },
+      patterns = { ".git", "Makefile", "package.json" },
     }
   
     local telescope = require "telescope"
