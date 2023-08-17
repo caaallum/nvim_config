@@ -81,7 +81,8 @@ map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts())
 map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts())
 
 -- Lsp
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true}<cr>", opts("Format"))
+map("n", "<leader>lf", "<cmd>Format<cr>", opts("Format"))
+map("n", "<leader>lF", "<cmd>FormatWrite<cr>", opts("FormatWrite"))
 
 -- Buffers
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts())
