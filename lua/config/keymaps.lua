@@ -52,10 +52,10 @@ map("n", "|", "<cmd>vsplit<cr>", opts())
 map("n", "\\", "<cmd>split<cr>", opts())
 
 -- Resize splits
-map("n", "<C-A-h>", function() require("smart-splits").resize_left() end, opts("Resize left"))
-map("n", "<C-A-j>", function() require("smart-splits").resize_down() end, opts("Resize down"))
-map("n", "<C-A-k>", function() require("smart-splits").resize_up() end, opts("Resize up"))
-map("n", "<C-A-l>", function() require("smart-splits").resize_right() end, opts("Resize right"))
+map("n", "<S-h>", function() require("smart-splits").resize_left() end, opts("Resize left"))
+map("n", "<S-j>", function() require("smart-splits").resize_down() end, opts("Resize down"))
+map("n", "<S-k>", function() require("smart-splits").resize_up() end, opts("Resize up"))
+map("n", "<S-l>", function() require("smart-splits").resize_right() end, opts("Resize right"))
 
 -- Moving between splits
 map("n", "<C-h>", function() require("smart-splits").move_cursor_left() end, opts("Move left"))
