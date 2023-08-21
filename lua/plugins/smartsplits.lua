@@ -6,7 +6,18 @@ local M = {
 
 function M.config()
   require("smart-splits").setup({
-    ignored_buftypes = { "Neo-tree" }
+    default_amount = 3,
+    ignored_filetypes = {
+      "nofile",
+      "quickfix",
+      "promp",
+    },
+    ignored_buftypes = { "Neo-tree" },
+    ignored_events = {
+      'BufEnter',
+      'WinEnter',
+    },
+    
   })
 end
 
