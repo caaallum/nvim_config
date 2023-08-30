@@ -75,10 +75,10 @@ map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts("Start/Conti
 map("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts("Step into"))
 map("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts("Step over"))
 map("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts("Step out"))
-map("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts())
-map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts())
-map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts())
-map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts())
+map("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts("Toggle"))
+map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts("Run last"))
+map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts("Toggle UI"))
+map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts("Terminal"))
 
 -- Lsp
 map("n", "<leader>lf", "<cmd>Format<cr>", opts("Format"))
