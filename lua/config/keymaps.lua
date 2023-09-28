@@ -120,3 +120,9 @@ map("n", "<leader>F",
   end,
   opts("Hop after")
 )
+
+-- Move
+map("v", "<S-j>", "<plug>MoveBlockDown", opts("Move block down"))
+map("v", "<S-k>", "<plug>MoveBlockUp", opts("Move block up"))
+map("n", "<S-j>", "<plug>MoveLineDown", opts("Move line down"))
+map("n", "<S-k>", "<plug>MoveLineUp", opts("Move line up"))

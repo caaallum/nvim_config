@@ -16,7 +16,6 @@ local M = {
   },
 }
 function M.config()
-  local treesitter = require "nvim-treesitter"
   local configs = require "nvim-treesitter.configs"
 
   configs.setup {
@@ -27,12 +26,13 @@ function M.config()
 
     highlight = {
       enable = true,       -- false will disable the whole extension
-      disable = { "css" }, -- list of language that will be disabled
     },
     autopairs = {
       enable = true,
     },
-    indent = { enable = true, disable = { "python", "css" } },
+    indent = {
+      enable = true,
+    },
 
     context_commentstring = {
       enable = true,

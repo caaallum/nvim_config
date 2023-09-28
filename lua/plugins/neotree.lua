@@ -5,7 +5,7 @@ local M = {
   dependencies = {
     {
       "nvim-lua/plenary.nvim",
-      commit = "253d34830709d690f013daf2853a9d21ad7accab" 
+      commit = "253d34830709d690f013daf2853a9d21ad7accab"
     },
     {
       "nvim-tree/nvim-web-devicons",

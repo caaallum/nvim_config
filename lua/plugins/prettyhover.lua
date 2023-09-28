@@ -26,7 +26,7 @@ local M = {
       border = "rounded"
     }
   end,
-  config = function(_, opts) 
+  config = function(_, opts)
     require("pretty_hover").setup(opts)
   end
 }
