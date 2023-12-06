@@ -8,10 +8,7 @@ local M = {
       commit = "8933abc09df6c381d47dc271b1ee5d266541448e",
     },
   },
-}
-
-function M.config()
-  require("bufferline").setup {
+  opts = {
     options = {
       close_command = "Bdelete! %d",
       right_mouse_command = "Bdelete! %d",
@@ -27,6 +24,6 @@ function M.config()
     },
     highlights = require("catppuccin.groups.integrations.bufferline").get()
   }
-end
+}
 
 return M

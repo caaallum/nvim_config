@@ -1,11 +1,8 @@
 local M = {
   "nvim-tree/nvim-web-devicons",
   event = "VeryLazy",
-  commit = "0568104bf8d0c3ab16395433fcc5c1638efc25d4"
-}
-
-function M.config()
-  require("nvim-web-devicons").setup {
+  commit = "0568104bf8d0c3ab16395433fcc5c1638efc25d4",
+  opts = {
     override = {
     zsh = {
         icon = "",
@@ -17,6 +14,6 @@ function M.config()
     color_icons = true,
     default = true,
   }
-end
+}
 
 return M

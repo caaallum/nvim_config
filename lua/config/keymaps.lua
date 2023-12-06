@@ -44,7 +44,7 @@ map("i", "jj", "<Esc>", opts())
 map("i", "jk", "<Esc>", opts())
 
 -- Comment
-map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts("Comment"))
+map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts("Comment"))
 map("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode(h))<cr>", opts("Comment"))
 
 -- Create split
@@ -69,19 +69,8 @@ map("n", "<leader><leader>j", function() require("smart-splits").swap_buf_down()
 map("n", "<leader><leader>k", function() require("smart-splits").swap_buf_up() end, opts("Swap up"))
 map("n", "<leader><leader>l", function() require("smart-splits").swap_buf_right() end, opts("Swap right"))
 
--- Dap
-map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts("Toggle breakpoint"))
-map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts("Start/Continue"))
-map("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts("Step into"))
-map("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts("Step over"))
-map("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts("Step out"))
-map("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts("Toggle"))
-map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts("Run last"))
-map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts("Toggle UI"))
-map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts("Terminal"))
-
 -- Lsp
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true}<cr>", opts("Format"))
+map("n", "<leader>lf", function() vim.lsp.buf.format{async = true} end, opts("Format"))
 
 -- Buffers
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts())
@@ -91,6 +80,7 @@ map("n", "<leader>c", function() require("bufdelete").bufdelete(0, false) end, o
 -- Terminal
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts("Open floating terminal"))
 map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", opts("Open horizontal terminal"))
+map("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", opts("Opten vertical terminal"))
 
 map("t", "<C-h>", "<cmd>wincmd h<cr>", opts())
 map("t", "<C-j>", "<cmd>wincmd j<cr>", opts())
@@ -126,3 +116,4 @@ map("v", "<S-j>", "<plug>MoveBlockDown", opts("Move block down"))
 map("v", "<S-k>", "<plug>MoveBlockUp", opts("Move block up"))
 map("n", "<S-j>", "<plug>MoveLineDown", opts("Move line down"))
 map("n", "<S-k>", "<plug>MoveLineUp", opts("Move line up"))
+

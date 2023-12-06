@@ -3,11 +3,8 @@ local M = {
   tag = "v1.1.1",
   name = "catppuccin",
   priority = 1000,
-  lazy = false
-}
-
-function M.config()
-  require("catppuccin").setup({
+  lazy = false,
+  opts = {
     flavour = "mocha",
     integrations = {
       neotree = true,
@@ -20,9 +17,7 @@ function M.config()
     },
     show_end_of_buffer = true,
     term_colors = true
-  })
-
-  vim.cmd.colorscheme "catppuccin"
-end
+  }
+}
 
 return M

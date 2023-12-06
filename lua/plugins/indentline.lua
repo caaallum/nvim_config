@@ -1,10 +1,8 @@
 local M = {
-    "lukas-reineke/indent-blankline.nvim",
-    commit = "8299fe7703dfff4b1752aeed271c3b95281a952d",
-    event = "BufReadPre",
-  }
-
-  M.opts = {
+  "lukas-reineke/indent-blankline.nvim",
+  commit = "8299fe7703dfff4b1752aeed271c3b95281a952d",
+  event = "BufReadPre",
+  opts = {
     char = "▏",
     show_trailing_blankline_indent = false,
     show_first_indent_level = true,
@@ -17,5 +15,6 @@ local M = {
       "Neotree",
     },
   }
+}
 
-  return M
+return M

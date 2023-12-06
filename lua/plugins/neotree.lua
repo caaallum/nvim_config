@@ -15,11 +15,8 @@ local M = {
       "MunifTanjim/nui.nvim",
       commit = "698e75814cd7c56b0dd8af4936bcef2d13807f3c"
     }
-  }
-}
-
-function M.config()
-  require("neo-tree").setup({
+  },
+  opts = {
       close_if_last_window = true,
       window = {
         width = 30,
@@ -37,7 +34,7 @@ function M.config()
           { source = "diagnostics", display_name = "Diagnostic" },
         },
     }
-  })
-end
+  }
+}
 
 return M
