@@ -1,40 +1,59 @@
-local M = {
+return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "v2.x",
-  event = "VimEnter",
-  dependencies = {
-    {
-      "nvim-lua/plenary.nvim",
-      commit = "253d34830709d690f013daf2853a9d21ad7accab"
-    },
-    {
-      "nvim-tree/nvim-web-devicons",
-      commit = "0568104bf8d0c3ab16395433fcc5c1638efc25d4"
-    },
-    {
-      "MunifTanjim/nui.nvim",
-      commit = "698e75814cd7c56b0dd8af4936bcef2d13807f3c"
-    }
-  },
+  branch = "v3.x",
+  cmd = "Neotree",
+  deactivate = function()
+    vim.cmd([[Neotree close]])
+  end,
+  init = function()
+    if vim.fn.argc(-1) == 1 then
+      local stat = vim.loop.fs_stat(vim.fn.argv(0))
+      if stat and stat.type == "directory" then
+        require("neo-tree")
+      end
+    end
+  end,
   opts = {
-      close_if_last_window = true,
-      window = {
-        width = 30,
+    sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+    open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+    filesystem = {
+      bind_to_cwd = false,
+      follow_current_file = { enabled = true },
+      use_libuv_file_watcher = true,
+    },
+    window = {
+      mappings = {
+        ["<space>"] = "none",
       },
-      filesystem = {
-        follow_current_file = true,
+    },
+    default_component_configs = {
+      indent = {
+        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+        expander_collapsed = "",
+        expander_expanded = "",
+        expander_highlight = "NeoTreeExpander",
       },
-      source_selector = {
-        winbar = true,
-        content_layout = "center",
-        sources = {
-          { source = "filesystem", display_name = "File" },
-          { source = "buffers", display_name = "Bufs" },
-          { source = "git_status", display_name = "Git" },
-          { source = "diagnostics", display_name = "Diagnostic" },
-        },
-    }
-  }
-}
+    },
+  },
+  config = function(_, opts)
+    local function on_move(data)
+      Util.lsp.on_rename(data.source, data.destination)
+    end
 
-return M
+    local events = require("neo-tree.events")
+    opts.event_handlers = opts.event_handlers or {}
+    vim.list_extend(opts.event_handlers, {
+      { event = events.FILE_MOVED, handler = on_move },
+      { event = events.FILE_RENAMED, handler = on_move },
+    })
+    require("neo-tree").setup(opts)
+    vim.api.nvim_create_autocmd("TermClose", {
+      pattern = "*lazygit",
+      callback = function()
+        if package.loaded["neo-tree.sources.git_status"] then
+          require("neo-tree.sources.git_status").refresh()
+        end
+      end,
+    })
+  end,
+}

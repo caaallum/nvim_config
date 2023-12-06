@@ -72,11 +72,6 @@ map("n", "<leader><leader>l", function() require("smart-splits").swap_buf_right(
 -- Lsp
 map("n", "<leader>lf", function() vim.lsp.buf.format{async = true} end, opts("Format"))
 
--- Buffers
-map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts())
-map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", opts())
-map("n", "<leader>c", function() require("bufdelete").bufdelete(0, false) end, opts("Close buffer"))
-
 -- Terminal
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts("Open floating terminal"))
 map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", opts("Open horizontal terminal"))

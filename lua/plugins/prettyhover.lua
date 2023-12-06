@@ -1,4 +1,4 @@
-local M = {
+return {
   "Fildo7525/pretty_hover",
   opts = {
     line = {
@@ -26,4 +26,3 @@ local M = {
   }
 }
 
-return M

@@ -15,7 +15,7 @@ local M = {
 }
 
 function M.config()
-  require("nvim-autopairs").setup {
+  require("nvim-autopairs").setup({
     check_ts = true, -- treesitter integration
     disable_filetype = { "TelescopePrompt" },
     ts_config = {
@@ -34,12 +34,12 @@ function M.config()
       highlight = "PmenuSel",
       highlight_grey = "LineNr",
     },
-  }
+  })
 
-  local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-  local cmp = require "cmp"
+  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  local cmp = require("cmp")
 
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {})
+  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({}))
 end
 
 return M
