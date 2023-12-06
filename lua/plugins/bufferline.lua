@@ -13,8 +13,8 @@ local M = {
 function M.config()
   require("bufferline").setup {
     options = {
-      close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
-      right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+      close_command = "Bdelete! %d",
+      right_mouse_command = "Bdelete! %d",
       offsets = {
         {
           filetype = "neo-tree",
@@ -23,7 +23,7 @@ function M.config()
           text_align = "left"
         }
       },
-      separator_style = "thin",            -- | "thick" | "thin" | { 'any', 'any' },
+      separator_style = "thin",
     },
     highlights = require("catppuccin.groups.integrations.bufferline").get()
   }
