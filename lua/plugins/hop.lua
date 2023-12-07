@@ -1,10 +1,7 @@
-local M = {
+return {
   "phaazon/hop.nvim",
   event = "VeryLazy",
-  branch = "v2",
   opts = {
-    keys = "etovxqpdygfblzhckisuran"
-  }
+    keys = "etovxqpdygfblzhckisuran",
+  },
 }
-
-return M

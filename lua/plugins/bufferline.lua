@@ -1,4 +1,4 @@
-local M = {
+return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
   keys = {
@@ -7,7 +7,13 @@ local M = {
     { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
     { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete buffers to the right" },
     { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
-    { "<leader>c", function() require("mini.bufremove").delete(0, false) end, desc = "Close current buffer" },
+    {
+      "<leader>c",
+      function()
+        require("mini.bufremove").delete(0, false)
+      end,
+      desc = "Close current buffer",
+    },
     { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
@@ -15,15 +21,19 @@ local M = {
   },
   opts = {
     options = {
-      close_command = function(n) require("mini.bufremove").delete(n, false) end,
-      right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
+      close_command = function(n)
+        require("mini.bufremove").delete(n, false)
+      end,
+      right_mouse_command = function(n)
+        require("mini.bufremove").delete(n, false)
+      end,
       offsets = {
         {
           filetype = "neo-tree",
           text = "Neo-tree",
           highlight = "Directory",
-          text_align = "left"
-        }
+          text_align = "left",
+        },
       },
       diagnostics = "nvim_lsp",
       always_show_bufferline = false,
@@ -36,7 +46,7 @@ local M = {
       separator_style = "thin",
     },
   },
-  config = function(_, opts) 
+  config = function(_, opts)
     require("bufferline").setup(opts)
 
     vim.api.nvim_create_autocmd("BufAdd", {
@@ -48,5 +58,3 @@ local M = {
     })
   end,
 }
-
-return M

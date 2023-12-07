@@ -3,7 +3,7 @@ local map = vim.keymap.set
 function opts(desc)
   return {
     silent = true,
-    desc = desc
+    desc = desc,
   }
 end
 
@@ -52,25 +52,51 @@ map("n", "|", "<cmd>vsplit<cr>", opts())
 map("n", "\\", "<cmd>split<cr>", opts())
 
 -- Resize splits
-map("n", "<A-h>", function() require("smart-splits").resize_left() end, opts("Resize left"))
-map("n", "<A-j>", function() require("smart-splits").resize_down() end, opts("Resize down"))
-map("n", "<A-k>", function() require("smart-splits").resize_up() end, opts("Resize up"))
-map("n", "<A-l>", function() require("smart-splits").resize_right() end, opts("Resize right"))
+map("n", "<A-h>", function()
+  require("smart-splits").resize_left()
+end, opts("Resize left"))
+map("n", "<A-j>", function()
+  require("smart-splits").resize_down()
+end, opts("Resize down"))
+map("n", "<A-k>", function()
+  require("smart-splits").resize_up()
+end, opts("Resize up"))
+map("n", "<A-l>", function()
+  require("smart-splits").resize_right()
+end, opts("Resize right"))
 
 -- Moving between splits
-map("n", "<C-h>", function() require("smart-splits").move_cursor_left() end, opts("Move left"))
-map("n", "<C-j>", function() require("smart-splits").move_cursor_down() end, opts("Move down"))
-map("n", "<C-k>", function() require("smart-splits").move_cursor_up() end, opts("Move up"))
-map("n", "<C-l>", function() require("smart-splits").move_cursor_right() end, opts("Move right"))
+map("n", "<C-h>", function()
+  require("smart-splits").move_cursor_left()
+end, opts("Move left"))
+map("n", "<C-j>", function()
+  require("smart-splits").move_cursor_down()
+end, opts("Move down"))
+map("n", "<C-k>", function()
+  require("smart-splits").move_cursor_up()
+end, opts("Move up"))
+map("n", "<C-l>", function()
+  require("smart-splits").move_cursor_right()
+end, opts("Move right"))
 
 -- Swapping buffers between windows
-map("n", "<leader><leader>h", function() require("smart-splits").swap_buf_left() end, opts("Swap left"))
-map("n", "<leader><leader>j", function() require("smart-splits").swap_buf_down() end, opts("Swap down"))
-map("n", "<leader><leader>k", function() require("smart-splits").swap_buf_up() end, opts("Swap up"))
-map("n", "<leader><leader>l", function() require("smart-splits").swap_buf_right() end, opts("Swap right"))
+map("n", "<leader><leader>h", function()
+  require("smart-splits").swap_buf_left()
+end, opts("Swap left"))
+map("n", "<leader><leader>j", function()
+  require("smart-splits").swap_buf_down()
+end, opts("Swap down"))
+map("n", "<leader><leader>k", function()
+  require("smart-splits").swap_buf_up()
+end, opts("Swap up"))
+map("n", "<leader><leader>l", function()
+  require("smart-splits").swap_buf_right()
+end, opts("Swap right"))
 
 -- Lsp
-map("n", "<leader>lf", function() vim.lsp.buf.format{async = true} end, opts("Format"))
+map("n", "<leader>lf", function()
+  vim.lsp.buf.format({ async = true })
+end, opts("Format"))
 
 -- Terminal
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts("Open floating terminal"))
@@ -87,28 +113,21 @@ map("n", "<leader>e", "<cmd>Neotree toggle<cr>", opts("Toggle neotree"))
 map("n", "<leader>o", "<cmd>Neotree<cr>", opts("Focus neotree"))
 
 -- Hop
-map("n", "<leader>f",
-  function()
-    require("hop").hint_char1({
-      direction = require("hop.hint").HintDirection.AFTER_CURSOR,
-      current_line_only = true
-    })
-  end,
-  opts("Hop before")
-)
-map("n", "<leader>F",
-  function()
-    require("hop").hint_char1({
-      direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
-      current_line_only = true
-    })
-  end,
-  opts("Hop after")
-)
+map("n", "<leader>f", function()
+  require("hop").hint_char1({
+    direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+    current_line_only = true,
+  })
+end, opts("Hop before"))
+map("n", "<leader>F", function()
+  require("hop").hint_char1({
+    direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+    current_line_only = true,
+  })
+end, opts("Hop after"))
 
 -- Move
 map("v", "<S-j>", "<plug>MoveBlockDown", opts("Move block down"))
 map("v", "<S-k>", "<plug>MoveBlockUp", opts("Move block up"))
 map("n", "<S-j>", "<plug>MoveLineDown", opts("Move line down"))
 map("n", "<S-k>", "<plug>MoveLineUp", opts("Move line up"))
-

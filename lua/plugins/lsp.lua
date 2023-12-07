@@ -78,7 +78,7 @@ return {
     --   local plugin = require("lazy.core.config").spec.plugins["neoconf.nvim"]
     --   require("neoconf").setup(require("lazy.core.plugin").values(plugin, "opts", false))
     -- end
-    
+
     -- setup autoformat
     Util.format.register(Util.lsp.formatter())
 
