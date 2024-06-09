@@ -1,60 +1,29 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
-  keys = {
-    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
-    { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete buffers to the right" },
-    { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
-    {
-      "<leader>c",
-      function()
-        require("mini.bufremove").delete(0, false)
-      end,
-      desc = "Close current buffer",
-    },
-    { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-    { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-    { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-    { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+  dependencies = {
+    "famiu/bufdelete.nvim",
   },
   opts = {
     options = {
-      close_command = function(n)
-        require("mini.bufremove").delete(n, false)
-      end,
-      right_mouse_command = function(n)
-        require("mini.bufremove").delete(n, false)
-      end,
+      close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
+      right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
       offsets = {
         {
           filetype = "neo-tree",
           text = "Neo-tree",
           highlight = "Directory",
-          text_align = "left",
-        },
+          text_align = "left"
+        }
       },
-      diagnostics = "nvim_lsp",
-      always_show_bufferline = false,
-      diagnostics_indicator = function(_, _, diag)
-        local icons = require("lazyvim.config").icons.diagnostics
-        local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-          .. (diag.warning and icons.Warn .. diag.warning or "")
-        return vim.trim(ret)
-      end,
-      separator_style = "thin",
-    },
+      separator_style = "thin",            -- | "thick" | "thin" | { 'any', 'any' },
+      always_show_bufferline = true,
+      diagnostics = "nvim_lsp"
+    }
   },
-  config = function(_, opts)
-    require("bufferline").setup(opts)
-
-    vim.api.nvim_create_autocmd("BufAdd", {
-      callback = function()
-        vim.schedule(function()
-          pcall(nvim_bufferline)
-        end)
-      end,
-    })
-  end,
+  keys = {
+    { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Move to next buffer", mode = "n" },
+    { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Move to previous buffer", mode = "n" },
+    { "<leader>c", function() require("bufdelete").bufdelete(0, false) end, desc = "Close buffer", mode = "n" }
+  }
 }
