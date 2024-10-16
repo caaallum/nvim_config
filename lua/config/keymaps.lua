@@ -1,9 +1,5 @@
 local map = vim.keymap.set
 
--- Remap space as leader key
-map("", "<Space>", "<Nop>")
-vim.g.mapleader = " "
-
 -- Remove highlight
 map("n", "<leader>h", "<cmd>nohlsearch<cr>", { desc = "Remove hightlight" })
 
